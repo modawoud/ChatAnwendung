@@ -1,0 +1,66 @@
+.container-fluid {
+  padding: 0 !important;
+}
+
+.row.no-gutters {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+.row.no-gutters > [class*='col-'] {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.mat-card.w-100 {
+  width: 100%;
+}
+
+img.w-100 {
+  width: 100%;
+  height: auto;
+}
+
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  height: 70vh; /* Sie können dies anpassen, um es größer oder kleiner zu machen */
+}
+
+.chat-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 10px;
+}
+
+.messages {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.message {
+  margin-bottom: 10px;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.input-container {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+input[matInput] {
+  flex: 1;
+  margin-right: 10px;
+  height: 50px; /* Höheres Eingabefeld */
+  font-size: 1.2em; /* Größere Schriftgröße */
+}
+
+button[mat-button] {
+  background-color: #3f51b5;
+  color: white;
+  height: 50px; /* Gleiche Höhe wie das Eingabefeld */
+  font-size: 1.2em; /* Größere Schriftgröße */
+}

@@ -1,0 +1,31 @@
+<ng-container>
+  <div class="container-fluid p-0">
+    <div class="row no-gutters">
+      <div class="col-12 my-2 shadow text-center">
+        <!-- Möglicher anderer Inhalt -->
+      </div>
+    </div>
+
+    <div class="row no-gutters">
+      <div class="col-12 my-2 shadow text-center">
+        <mat-card class="w-100 chat-container">
+          <mat-card-title>Chat</mat-card-title>
+          <mat-card-content class="chat-content">
+            <div class="messages">
+              <!-- Hier werden die Chat-Nachrichten angezeigt -->
+              <div *ngFor="let message of messages" class="message">
+                <p>{{message}}</p>
+              </div>
+            </div>
+          </mat-card-content>
+          <mat-card-actions>
+            <div class="input-container">
+              <input matInput placeholder="Type your message" [(ngModel)]="newMessage" (keyup.enter)="sendMessage()" class="large-input">
+              <button mat-button (click)="sendMessage()">Send</button>
+            </div>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</ng-container>

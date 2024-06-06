@@ -1,0 +1,65 @@
+version: "4"
+services:
+  #datenbank
+  db:
+    image: postgres
+    container_name: db_postgres
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: dawoud
+      POSTGRES_PASSWORD: dawoud12345
+    volumes:
+      - local_pgdata:/var/lib/postgresql/data
+
+    networks:
+        compose:
+          ipv4_address: 10.20.30.11
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin4_container
+    restart: always
+    ports:
+      - "8888:80"
+    networks:
+      compose:
+        ipv4_address: 10.20.30.12
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.de
+      PGADMIN_DEFAULT_PASSWORD: dawoud12345
+    volumes:
+      - pgadmin-data:/var/lib/pgadmin
+#Frontend
+#  nginx:
+#    build: ./frontend
+#    image: 'sensor-nginx:latest'
+#    restart: always
+#    container_name: frontend
+#    ports:
+#      - "80:80"
+#    networks:
+#      compose:
+#        ipv4_address: 10.20.30.6
+##backend
+#  api:
+#    build: ./backend
+#    image: 'sensor-api:latest'
+#    restart: always
+#    container_name: backend
+#    ports:
+#      - "8080:8080"
+#    networks:
+#      compose:
+#        ipv4_address: 10.20.30.7
+#    environment:
+#      spring.profiles.active: 'prod'
+
+volumes:
+  local_pgdata:
+  pgadmin-data:
+
+networks:
+  compose:
+    external: true
